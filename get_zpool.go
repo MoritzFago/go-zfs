@@ -1,6 +1,5 @@
-package zfs
-
 // +build !freebsd
+package zfs
 
 // GetZpool retrieves a single ZFS zpool by name.
 func GetZpool(name string) (*Zpool, error) {
