@@ -1,4 +1,5 @@
 // +build !freebsd
+
 package zfs
 
 // GetZpool retrieves a single ZFS zpool by name.
