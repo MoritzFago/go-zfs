@@ -2,7 +2,7 @@ package zfs
 
 // GetZpool retrieves a single ZFS zpool by name.
 func GetZpool(name string) (*Zpool, error) {
-	out, err := zpool("get", "all", name)
+	out, err := zpool("get", "-p", "all", name)
 	if err != nil {
 		return nil, err
 	}
