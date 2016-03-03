@@ -318,6 +318,17 @@ func (z *Zpool) parseLine(line []string) error {
 		err = setUint(&z.Size, val)
 	case "free":
 		err = setUint(&z.Free, val)
+	case "fragmentation":
+		err = setUint(&z.Fragmentation, val[:len(val)-1])
+	case "readonly":
+		z.ReadOnly = val == "on"
+	case "freeing":
+		// z.Freeing, err = strconv.ParseFloat(val[:len(val)-1], 64)
+		err = setUint(&z.Freeing, val)
+	case "leaked":
+		err = setUint(&z.Leaked, val)
+	case "dedupratio":
+		z.DedupRatio, err = strconv.ParseFloat(val[:len(val)-1], 64)
 	}
 	return err
 }
